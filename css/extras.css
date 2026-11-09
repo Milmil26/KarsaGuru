@@ -1,0 +1,29 @@
+/* Tambahan kecil: dashboard dokumen terbaru, pintasan di kartu modul */
+[hidden] { display: none !important; }
+
+.recent-list { display: grid; gap: 8px; }
+.recent-item {
+  display: grid; gap: 2px; padding: 12px 14px; border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, .08); text-decoration: none; color: inherit;
+}
+.recent-item:hover { background: rgba(0, 0, 0, .03); }
+.recent-item small { opacity: .7; }
+
+.card-links { display: block; margin-top: 4px; }
+
+.reset-note { font-size: .9rem; opacity: .75; margin-top: 12px; }
+
+.ai-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+.ai-bar .hint { margin: 0; flex: 1 1 220px; }
+
+/* Wizard modul baru */
+.wz-steps { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 16px; }
+.wz-step { padding: 6px 14px; border-radius: 99px; border: 2px solid var(--line); color: var(--muted); font-weight: 700; font-size: 14px; }
+.wz-step.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+.wz-step.done { border-color: var(--blue); color: var(--blue-dark); }
+.wz-check { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; margin-bottom: 8px; cursor: pointer; }
+.wz-check:has(input:checked) { border-color: var(--blue); }
+.wz-check small { display: block; opacity: .7; }
+.wz-check input { margin-top: 4px; accent-color: var(--blue); }
+.wz-option { margin-top: 14px; }
+.wz-option h3 { margin: 0 0 4px; }

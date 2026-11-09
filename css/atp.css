@@ -1,0 +1,79 @@
+/* Halaman ATP */
+[hidden] { display: none !important; }
+
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.page-head h1 { font-size: clamp(34px, 4vw, 48px); font-weight: 800; letter-spacing: -.04em; }
+.page-head p { color: var(--muted); font-size: 17px; margin-top: 6px; }
+.list-status { color: var(--muted); padding: 24px 0; }
+
+/* Daftar */
+.atp-list { display: grid; gap: 12px; }
+.atp-card {
+  background: #fff; border-radius: 22px; padding: 20px 22px;
+  display: flex; align-items: center; gap: 16px;
+}
+.atp-card-main { flex: 1; min-width: 0; }
+.atp-card h3 { font-size: 19px; font-weight: 800; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.atp-card p { color: var(--muted); font-size: 15px; margin-top: 2px; }
+.atp-card small { color: #8793B0; font-size: 13px; }
+.atp-card-actions { display: flex; align-items: center; gap: 10px; }
+.atp-card-actions .button { padding: 9px 18px; }
+.icon-danger { border: 0; background: transparent; color: #B3382A; font-weight: 700; font-size: 14px; padding: 8px; border-radius: 8px; }
+.icon-danger:hover { background: #FDE4E1; }
+
+.chip { display: inline-block; padding: 4px 12px; border-radius: 99px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.chip-draft { background: #EEF1F8; color: var(--muted); }
+.chip-processing { background: var(--blue-soft); color: var(--blue-dark); }
+.chip-ready { background: var(--sun-soft); color: #1A86B3; }
+.chip-failed { background: #FDE4E1; color: #B3382A; }
+
+/* Editor */
+.back-link { border: 0; background: transparent; color: var(--blue-dark); font-weight: 700; font-size: 15px; padding: 0; margin-bottom: 16px; }
+.back-link:hover { text-decoration: underline; }
+.atp-form { max-width: 820px; }
+.atp-form h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+.field { margin-top: 20px; }
+.field > label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+.optional { color: var(--muted); font-weight: 500; }
+.field-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.atp-form input[type=text], .atp-form select, .atp-form textarea {
+  width: 100%; border: 2px solid var(--line); border-radius: 14px; background: #fff;
+  padding: 0 14px; height: 50px; font-size: 16px; outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.atp-form textarea { height: auto; min-height: 76px; padding: 12px 14px; resize: vertical; line-height: 1.5; }
+.atp-form input:focus, .atp-form select:focus, .atp-form textarea:focus {
+  border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft);
+}
+.tp-list { display: grid; gap: 10px; }
+.tp-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: start; }
+.tp-number {
+  width: 34px; height: 34px; margin-top: 8px; border-radius: 50%; background: var(--blue-soft); color: var(--blue-dark);
+  display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 15px;
+}
+.tp-actions { display: flex; flex-direction: column; gap: 4px; }
+.tp-btn {
+  width: 32px; height: 24px; border: 0; border-radius: 8px; background: var(--lilac); color: var(--ink);
+  font-size: 15px; line-height: 1; display: grid; place-items: center;
+}
+.tp-btn:hover:not(:disabled) { background: var(--blue-soft); }
+.tp-btn:disabled { opacity: .35; cursor: default; }
+.add-tp { margin-top: 12px; padding: 9px 18px; }
+.file-box { background: var(--lilac); border-radius: 14px; padding: 14px; }
+.file-info { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.file-info:empty { display: none; }
+.file-info .text-link { border: 0; background: transparent; padding: 0; font-size: 14px; }
+.hint { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.form-message { font-size: 14px; color: var(--blue-dark); min-height: 20px; margin-top: 16px; }
+.form-actions { display: flex; gap: 12px; margin-top: 8px; }
+
+@media (max-width: 700px) {
+  .page-head { flex-direction: column; align-items: flex-start; }
+  .atp-card { flex-wrap: wrap; }
+  .atp-card h3 { white-space: normal; }
+  .atp-card-actions { width: 100%; justify-content: space-between; }
+  .field-grid { grid-template-columns: 1fr; }
+  .tp-row { grid-template-columns: 30px 1fr; }
+  .tp-actions { grid-column: 2; flex-direction: row; }
+  .tp-btn { width: 40px; height: 32px; }
+}

@@ -1,0 +1,47 @@
+/* Bank Template + dialog simpan template di halaman Modul. Memakai variabel dari style.css. */
+.bt-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 16px; }
+.bt-tab {
+  border: 2px solid var(--line); background: #fff; color: var(--muted);
+  padding: 8px 16px; border-radius: 99px; font-weight: 700; font-size: 14px;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.bt-tab:hover { border-color: var(--blue); color: var(--blue-dark); }
+.bt-tab.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+.bt-filters {
+  display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); gap: 14px;
+  padding: 18px 20px; margin-bottom: 18px;
+}
+.bt-filters .field { margin: 0; }
+.bt-filters input, .bt-filters select { width: 100%; }
+
+.bt-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.atp-card-main small + small { margin-top: 2px; display: block; }
+
+/* Dialog */
+.bt-dialog {
+  width: min(720px, calc(100% - 32px)); max-height: calc(100vh - 48px);
+  border: 0; border-radius: 26px; padding: 28px; color: var(--ink); background: #fff;
+  box-shadow: var(--shadow);
+}
+.bt-dialog::backdrop { background: rgba(20, 35, 79, .45); }
+.bt-dialog h2 { font-size: 26px; font-weight: 800; margin-bottom: 4px; }
+.bt-dialog .field { margin-top: 14px; }
+.bt-dialog input[type=text], .bt-dialog select, .bt-dialog textarea { width: 100%; }
+.bt-label { display: block; font-weight: 700; font-size: 14px; margin: 18px 0 8px; }
+.bt-preview { max-height: 260px; overflow: auto; border: 2px solid var(--line); border-radius: 14px; padding: 8px 12px; }
+.bt-text { white-space: pre-wrap; font-size: 14px; }
+.bt-levels { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.bt-levels label { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; font-size: 14px; margin: 0; }
+.bt-radio { display: grid; gap: 8px; margin-top: 4px; }
+.bt-radio label { display: flex; align-items: flex-start; gap: 8px; font-weight: 500; font-size: 14px; margin: 0; }
+.bt-radio input { margin-top: 3px; accent-color: var(--blue); }
+.bt-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+@media (max-width: 1000px) { .bt-filters { grid-template-columns: 1fr 1fr; } .bt-search { grid-column: 1 / -1; } }
+@media (max-width: 700px) { .bt-dialog { padding: 20px; } }
+
+/* Pilihan jenis: Modul Ajar, LKPD, Media */
+.bt-kinds { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.bt-kind { padding: 8px 18px; border-radius: 99px; border: 2px solid var(--line); background: #fff; color: var(--muted); font-weight: 700; font-family: inherit; cursor: pointer; }
+.bt-kind.active { background: var(--blue); border-color: var(--blue); color: #fff; }

@@ -1,0 +1,12 @@
+/* Halaman LKPD dan Media (melengkapi atp.css dan modul.css) */
+.atp-form input[type=url] {
+  width: 100%; border: 2px solid var(--line); border-radius: 14px; background: #fff;
+  padding: 0 14px; height: 50px; font-size: 16px; outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.atp-form input[type=url]:focus { border-color: var(--blue); box-shadow: 0 0 0 4px var(--blue-soft); }
+.media-preview { margin-top: 10px; }
+.media-preview img { display: block; max-width: 100%; max-height: 220px; border-radius: 12px; border: 1px solid var(--line); }
+.empty-note { color: var(--muted); font-size: 15px; }
+.field-grid.two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 700px) { .field-grid.two { grid-template-columns: 1fr; } }

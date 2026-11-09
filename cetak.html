@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Cetak — KarsaGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/extras.css">
+  <link rel="stylesheet" href="css/cetak.css"></head>
+<body class="print-body">
+  <div class="print-toolbar no-print">
+    <a class="button button-quiet" id="backLink" href="dashboard.html">← Kembali</a>
+    <div class="print-actions"><button class="button button-quiet" id="wordButton" type="button" hidden>Unduh Word (.doc)</button>
+    <button class="button button-primary" id="printButton" type="button" disabled>Cetak atau simpan PDF</button></div>
+  </div>
+  <p class="print-status no-print" id="printStatus">Memuat...</p>
+  <article class="sheet" id="sheet" hidden></article>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/ui-helpers.js"></script>
+  <script src="js/material-config.js"></script>
+  <script src="js/modul-komponen.js"></script>
+  <script src="js/cetak.js"></script>
+</body></html>

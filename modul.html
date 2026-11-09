@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Modul Ajar — KarsaGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/atp.css">
+  <link rel="stylesheet" href="css/modul.css">
+  <link rel="stylesheet" href="css/extras.css">
+  <link rel="stylesheet" href="css/bank-template.css"></head>
+<body class="app-body" data-tpl-kind="modul">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand sidebar-brand" href="dashboard.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></span><span>Karsa<span>Guru</span></span></a>
+      <nav class="side-nav">
+        <a class="side-link" href="dashboard.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span> Dashboard</a>
+        <a class="side-link" href="bank-template.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg></span> Bank Template</a>
+        <a class="side-link active" href="modul.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span> Modul Ajar</a>
+        <a class="side-link" href="lkpd.html"><span class="side-ico ico-coral"><svg class="ico" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9.5 14l2 2 3.5-3.5"/></svg></span> LKPD</a>
+        <a class="side-link" href="media.html"><span class="side-ico ico-sun"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 1.8 1.8.7-1.8.7L19 21l-.7-1.8-1.8-.7 1.8-.7z"/></svg></span> Media</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="side-link" href="#" id="logoutButton"><span class="side-ico ico-gray"><svg class="ico" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></span> Keluar</a>
+        <a class="profile-mini" href="#"><span class="profile-avatar">G</span><span><b id="profileName">Guru</b><small id="profileRole">Guru</small></span></a>
+      </div>
+    </aside>
+    <main class="app-main">
+      <header class="app-topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb"><b>Modul Ajar</b></div>
+        <div class="topbar-actions"><span class="top-avatar">G</span></div>
+      </header>
+      <div class="dashboard-content">
+
+        <section id="listView">
+          <div class="page-head">
+            <div><h1>Modul Ajar</h1><p>Rencana pembelajaran yang kamu susun.</p></div>
+            <button class="button button-primary" id="newModuleButton" type="button">Buat modul</button>
+          </div>
+          <p class="list-status" id="listStatus">Memuat...</p>
+          <div class="atp-list" id="moduleList"></div>
+        </section>
+
+        <section id="editorView" hidden>
+          <button class="back-link" id="backButton" type="button">← Kembali ke daftar</button>
+          <form class="panel atp-form" id="moduleForm" novalidate>
+            <h2 id="editorTitle">Modul baru</h2>
+
+            <div class="field">
+              <label for="modTemplate">Format dokumen</label>
+              <select id="modTemplate"></select>
+              <p class="hint" id="templateHint"></p>
+            </div>
+
+            <div class="field">
+              <label for="modTitle">Judul</label>
+              <input id="modTitle" type="text" maxlength="150" placeholder="Contoh: Pecahan Senilai">
+            </div>
+            <div class="field">
+              <label for="modTopic">Topik <span class="optional">(opsional)</span></label>
+              <input id="modTopic" type="text" maxlength="150" placeholder="Materi pokok yang dibahas">
+            </div>
+
+            <div class="field-grid">
+              <div class="field"><label for="modCurriculum">Kurikulum</label><select id="modCurriculum"></select></div>
+              <div class="field"><label for="modPhase">Fase</label><select id="modPhase"></select></div>
+              <div class="field"><label for="modSubject">Mapel</label><select id="modSubject"></select></div>
+            </div>
+            <div class="field-grid">
+              <div class="field"><label for="modGrade">Kelas</label><select id="modGrade"></select></div>
+              <div class="field"><label for="modMeetings">Jumlah pertemuan</label><input id="modMeetings" type="number" min="1" max="50" inputmode="numeric" placeholder="Contoh: 3"></div>
+              <div class="field"><label for="modStatus">Status</label>
+                <select id="modStatus"><option value="draft">Draf</option><option value="ready">Siap digunakan</option></select></div>
+            </div>
+            <div class="field" id="schoolField" hidden>
+              <label for="modSchool">Sekolah <span class="optional">(opsional)</span></label>
+              <select id="modSchool"></select>
+            </div>
+
+            <div class="field">
+              <label>Tujuan pembelajaran yang dipakai <span class="optional" id="tpCount"></span></label>
+              <label class="filter-toggle"><input type="checkbox" id="matchFilter" checked> Tampilkan yang cocok dengan fase dan mapel saja</label>
+              <div id="tpPicker"></div>
+              <div class="own-tp">
+                <input id="ownTp" type="text" maxlength="300" placeholder="Atau tulis TP sendiri">
+                <button class="button button-quiet" id="addOwnTp" type="button">Tambah</button>
+              </div>
+            </div>
+
+            <div class="field" id="kbcField" hidden>
+              <label>Nilai KBC yang dikuatkan <span class="optional">(opsional)</span></label>
+              <div id="kbcPicker"></div>
+            </div>
+
+            <div class="field">
+              <label>Komponen modul</label>
+              <div class="ai-bar">
+                <button class="button button-quiet" id="aiButton" type="button">Isi komponen kosong dengan AI</button>
+                <p class="hint">Hanya bagian yang masih kosong yang diisi. Hasilnya draf: periksa dan revisi dulu, lalu klik Simpan.</p>
+              </div>
+              <div id="componentList"></div>
+            </div>
+
+            <div class="field" id="historySection" hidden>
+              <label>Riwayat versi</label>
+              <p class="hint">Versi baru dibuat otomatis tiap kali kamu menyimpan perubahan. Disimpan maksimal 30 versi terakhir.</p>
+              <div class="version-list" id="historyList"></div>
+            </div>
+
+            <p class="form-message" id="moduleMessage" aria-live="polite"></p>
+            <div class="form-actions">
+              <button class="button button-primary" id="saveButton" type="submit">Simpan</button>
+              <button class="button button-quiet" id="saveTemplateButton" type="button">Simpan sebagai template</button>
+              <button class="button button-quiet" id="cancelButton" type="button">Batal</button>
+            </div>
+          </form>
+        </section>
+
+        <footer class="app-footer">© 2026 KarsaGuru</footer>
+      </div>
+    </main>
+  </div>
+  <dialog class="bt-dialog" id="tplDialog">
+    <form id="tplForm" method="dialog" novalidate>
+      <h2>Simpan sebagai template</h2>
+      <p class="hint">Isi modul ini jadi template yang bisa dipakai ulang. Topik yang kamu ketik otomatis diganti {topik}.</p>
+      <p class="hint" id="tplNote"></p>
+      <div class="field"><label for="tplTitle">Judul template</label><input id="tplTitle" type="text" maxlength="150"></div>
+      <div class="field"><label for="tplDesc">Deskripsi <span class="optional">(opsional)</span></label><textarea id="tplDesc" rows="3" maxlength="500" placeholder="Cocok dipakai untuk apa?"></textarea></div>
+      <div class="field"><label>Cocok untuk jenjang <span class="optional">(opsional)</span></label><div class="bt-levels" id="tplLevels"></div></div>
+      <div class="field">
+        <label>Siapa yang bisa melihat</label>
+        <div class="bt-radio">
+          <label><input type="radio" name="tplVisibility" value="private" checked> <span><b>Pribadi</b><br>Hanya kamu.</span></label>
+          <label><input type="radio" name="tplVisibility" value="public"> <span><b>Publik</b><br>Tampil di katalog setelah ditinjau. Bagian Identitas tidak ikut disimpan.</span></label>
+        </div>
+      </div>
+      <div class="field" id="tplOwnWrap" hidden>
+        <label class="remember"><input type="checkbox" id="tplOwn"> Isinya karyaku sendiri atau boleh dibagikan, dan tanpa nama siswa, sekolah, atau NIP.</label>
+      </div>
+      <p class="form-message" id="tplMessage" aria-live="polite"></p>
+      <div class="form-actions">
+        <button class="button button-primary" id="tplSubmit" type="submit">Simpan template</button>
+        <button class="button button-quiet" id="tplCancel" type="button">Batal</button>
+      </div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/modul-komponen.js"></script>
+  <script src="js/ai-draft.js"></script>
+  <script src="js/modul.js"></script>
+  <script src="js/template-simpan.js"></script>
+</body></html>

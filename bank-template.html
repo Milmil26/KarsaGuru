@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Bank Template — KarsaGuru</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/atp.css">
+  <link rel="stylesheet" href="css/modul.css">
+  <link rel="stylesheet" href="css/extras.css">
+  <link rel="stylesheet" href="css/bank-template.css"></head>
+<body class="app-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand sidebar-brand" href="dashboard.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></span><span>Karsa<span>Guru</span></span></a>
+      <nav class="side-nav">
+        <a class="side-link" href="dashboard.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></span> Dashboard</a>
+        <a class="side-link active" href="bank-template.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg></span> Bank Template</a>
+        <a class="side-link" href="modul.html"><span class="side-ico ico-blue"><svg class="ico" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span> Modul Ajar</a>
+        <a class="side-link" href="lkpd.html"><span class="side-ico ico-coral"><svg class="ico" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9.5 14l2 2 3.5-3.5"/></svg></span> LKPD</a>
+        <a class="side-link" href="media.html"><span class="side-ico ico-sun"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 1.8 1.8.7-1.8.7L19 21l-.7-1.8-1.8-.7 1.8-.7z"/></svg></span> Media</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a class="side-link" href="#" id="logoutButton"><span class="side-ico ico-gray"><svg class="ico" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></span> Keluar</a>
+        <a class="profile-mini" href="#"><span class="profile-avatar">G</span><span><b id="profileName">Guru</b><small id="profileRole">Guru</small></span></a>
+      </div>
+    </aside>
+    <main class="app-main">
+      <header class="app-topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb"><b>Bank Template</b></div>
+        <div class="topbar-actions"><span class="top-avatar">G</span></div>
+      </header>
+      <div class="dashboard-content">
+        <div class="page-head">
+          <div><h1>Bank Template</h1><p>Mulai dari template, bukan dari halaman kosong.</p></div>
+          <a class="button button-quiet" href="modul.html">Bagikan karyamu</a>
+        </div>
+
+        <div class="bt-kinds" id="kinds">
+          <button class="bt-kind active" type="button" data-kind="modul">Modul Ajar</button>
+          <button class="bt-kind" type="button" data-kind="lkpd">LKPD</button>
+          <button class="bt-kind" type="button" data-kind="media">Media</button>
+        </div>
+
+        <div class="bt-tabs" id="tabs" role="tablist">
+          <button class="bt-tab active" type="button" data-tab="all">Katalog</button>
+          <button class="bt-tab" type="button" data-tab="mine">Template saya</button>
+          <button class="bt-tab" type="button" data-tab="pending" id="pendingTab" hidden>Perlu ditinjau</button>
+        </div>
+
+        <div class="panel bt-filters">
+          <div class="field bt-search"><label for="fQuery">Cari</label><input id="fQuery" type="search" placeholder="Judul atau deskripsi"></div>
+          <div class="field"><label for="fLevel">Jenjang</label><select id="fLevel"></select></div>
+          <div class="field"><label for="fCurriculum">Kurikulum</label><select id="fCurriculum"></select></div>
+          <div class="field"><label for="fKey">Jenis dokumen</label><select id="fKey"></select></div>
+          <div class="field"><label for="fSubject">Mapel</label><select id="fSubject"></select></div>
+        </div>
+
+        <p class="list-status" id="listStatus">Memuat...</p>
+        <div class="atp-list" id="templateList"></div>
+        <footer class="app-footer">© 2026 KarsaGuru</footer>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="bt-dialog" id="useDialog">
+    <form id="useForm" method="dialog" novalidate>
+      <h2 id="useHead">Template</h2>
+      <p class="hint" id="useMeta"></p>
+      <p class="hint" id="useDesc"></p>
+
+      <div class="field-grid">
+        <div class="field"><label for="useName" id="useNameLabel">Judul modul</label><input id="useName" type="text" maxlength="150"></div>
+        <div class="field" id="useModuleField" hidden><label for="useModule">Untuk modul <span class="optional">(mengisi {topik} dan {kelas})</span></label><select id="useModule"></select></div>
+        <div class="field" id="useTopicField"><label for="useTopic">Topik <span class="optional">(mengisi {topik})</span></label><input id="useTopic" type="text" maxlength="150" placeholder="Contoh: Pecahan Senilai"></div>
+        <div class="field" id="useGradeField"><label for="useGrade">Kelas <span class="optional">(mengisi {kelas})</span></label><select id="useGrade"></select></div>
+      </div>
+
+      <label class="bt-label">Isi template</label>
+      <div class="bt-preview" id="usePreview"></div>
+
+      <p class="form-message" id="useMessage" aria-live="polite"></p>
+      <div class="form-actions">
+        <button class="button button-primary" id="useSubmit" type="submit">Pakai template ini</button>
+        <button class="button button-quiet" id="useCancel" type="button">Tutup</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/app-shell.js"></script>
+  <script src="js/ui-helpers.js"></script>
+  <script src="js/modul-komponen.js"></script>
+  <script src="js/material-config.js"></script>
+  <script src="js/bank-template.js"></script>
+</body></html>

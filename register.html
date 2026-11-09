@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Daftar — KarsaGuru</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/auth.css"></head>
+<body class="auth-body">
+<main class="auth-layout">
+  <section class="auth-aside">
+    <a class="brand brand-light" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></span><span>Karsa<span>Guru</span></span></a>
+    <div><h1>Yuk, mulai dari sini.</h1><p>Buat ruang kerjamu sendiri.</p></div>
+    <span></span>
+  </section>
+  <section class="auth-main">
+    <div class="auth-card">
+      <div class="auth-mobile-brand"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg></span><span>Karsa<span>Guru</span></span></a></div>
+      <div class="auth-heading"><h2>Buat akun</h2><p>Gratis dan cuma semenit.</p></div>
+      <form id="registerForm">
+        <label for="fullName">Nama lengkap</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Nama lengkapmu" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="nama@email.com" required>
+        <label for="password">Kata sandi</label>
+        <div class="password-wrap"><input id="password" name="password" type="password" placeholder="Minimal 8 karakter" minlength="8" required><button type="button" class="show-password" data-toggle-password="password">Lihat</button></div>
+        <label class="terms-check"><input type="checkbox" required> Saya setuju dengan ketentuan penggunaan.</label>
+        <button class="button button-primary button-full" type="submit">Buat akun</button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+      <p class="auth-switch">Sudah punya akun? <a href="login.html">Masuk</a></p>
+    </div>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/auth.js"></script>
+</body></html>
